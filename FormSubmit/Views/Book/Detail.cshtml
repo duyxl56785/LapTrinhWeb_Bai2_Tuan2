@@ -1,0 +1,28 @@
+﻿@model FormSubmit.Models.Book
+
+@{
+    ViewData["Title"] = "Chi tiết sách";
+}
+
+<div class="container mt-4" style="max-width: 500px;">
+    <div class="card shadow-sm">
+        <div class="card-header bg-info text-white">
+            <h4>Chi tiết thông tin sách</h4>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-4">Mã sách (Id):</dt>
+                <dd class="col-sm-8">@Model.Id</dd>
+
+                <dt class="col-sm-4">Tên sách:</dt>
+                <dd class="col-sm-8">@Model.Name</dd>
+
+                <dt class="col-sm-4">Giá tiền:</dt>
+                <dd class="col-sm-8">@Model.Price $</dd>
+            </dl>
+        </div>
+        <div class="card-footer text-end">
+            <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
+        </div>
+    </div>
+</div>

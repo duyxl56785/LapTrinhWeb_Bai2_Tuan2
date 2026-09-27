@@ -1,0 +1,44 @@
+﻿@model FormSubmit.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Đăng nhập";
+}
+
+<div class="container mt-5" style="max-width: 450px;">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white text-center">
+            <h4 class="mb-0">ĐĂNG NHẬP</h4>
+        </div>
+        <div class="card-body">
+            @* Hiển thị kết quả kiểm tra thông báo *@
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert @(ViewBag.IsSuccess ? "alert-success" : "alert-danger") text-center" role="alert">
+                    <strong>@ViewBag.Message</strong>
+                </div>
+            }
+
+            <form asp-controller="Account" asp-action="Login" method="post">
+                <div class="mb-3">
+                    <label class="form-label" for="Username">Tài khoản (Username):</label>
+                    <input type="text" id="Username" name="Username" class="form-control" placeholder="Nhập username..."
+                           required
+                           oninvalid="this.setCustomValidity('Please fill out this field.')"
+                           oninput="this.setCustomValidity('')" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="Password">Mật khẩu (Password):</label>
+                    <input type="password" id="Password" name="Password" class="form-control" placeholder="Nhập password..."
+                           required
+                           oninvalid="this.setCustomValidity('Please fill out this field.')"
+                           oninput="this.setCustomValidity('')" />
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary">Đăng nhập</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
